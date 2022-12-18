@@ -1,0 +1,21 @@
+{% extends 'videos_base.html'%}
+{% load embed_video_tags %}
+
+{% block content %}
+
+    <h1 class='mb-5'>PROJECTS</h1>
+{% if user.is_authenticated and user.username %}
+    </div class="d-flex flex-wrap">
+
+        {% for item in videos %}
+        <div class="px-3 mb-5">
+            {% video item.url '426x240'%}
+        </div>
+        <div class="d-flex justify-content-start">
+            {{item.title}}
+        </div>
+
+        {% endfor %}
+    </div>
+{%endif%}
+{% endblock %}
